@@ -3,15 +3,13 @@ import CreateAccount from '../components/CreateAccount';
 import {
   UPDATE_FIRST_NAME,
   UPDATE_LAST_NAME,
-  UPDATE_EMAIL,
-  BLUR_EMAIL
+  UPDATE_EMAIL
 } from '../actions/types';
 
 const mapStateToProps = state => {
   console.log('state', state);
   return {
-    userInfo: state.userInfo,
-    createAccount: state.createAccount
+    userInfo: state.userInfo
   };
 };
 
@@ -35,19 +33,6 @@ const mapDispatchToProps = dispatch => {
       dispatch({
         type: UPDATE_EMAIL,
         email: event.target.value
-      });
-    },
-
-    onEmailBlur: (event) => {
-      dispatch({
-        type: BLUR_EMAIL,
-        email: event.target.value
-      });
-    },
-
-    onFormSubmit: () => {
-      dispatch({
-        type: SUBMIT_CREATE_ACCOUNT
       });
     }
   }

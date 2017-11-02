@@ -66,17 +66,9 @@ body {
   padding-bottom: 8px;
   font-size: 12pt;
   margin-bottom: 10px;
-
-  &.hasError {
-    border-bottom: 2px solid #e74c3c;
-  }
 }
 
 .inputField:focus {
   outline: 0;
   border-bottom: 2px solid $primary-color;
-
-  &.hasError {
-    border-bottom: 2px solid #e74c3c;
-  }
 }
