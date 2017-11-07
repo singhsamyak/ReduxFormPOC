@@ -9,7 +9,7 @@ const Link = (props) => {
   );
 }
 
-Link.PropTypes = {
+Link.propTypes = {
   href: PropTypes.string,
   title: PropTypes.string.isRequired
 }

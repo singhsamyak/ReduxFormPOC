@@ -13,8 +13,8 @@ const InputField = (props) => {
   );
 }
 
-InputField.PropTypes = {
-  onChange: PropTypes.func.isRequired,
+InputField.propTypes = {
+  onChange: PropTypes.func,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   type: PropTypes.string.isRequired,

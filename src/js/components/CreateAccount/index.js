@@ -55,7 +55,7 @@ const CreateAccount = (props) => {
   );
 }
 
-CreateAccount.PropTypes = {
+CreateAccount.propTypes = {
   userInfo: PropTypes.object
 }
 

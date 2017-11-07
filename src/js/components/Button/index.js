@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Button = (props) => {
   let buttonType,
       className = 'button';
+
   if (props.isPrimary) {
     buttonType = 'submit';
     className += ' primary';
@@ -21,7 +22,7 @@ const Button = (props) => {
   );
 }
 
-Button.PropTypes = {
+Button.propTypes = {
   isPrimary: PropTypes.bool.isRequired,
   name: PropTypes.string,
   value: PropTypes.string.isRequired
