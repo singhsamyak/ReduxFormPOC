@@ -8,6 +8,7 @@ const InputField = (props) => {
   return (
     <input
       className={className}
+      onBlur={props.onBlur}
       onChange={props.onChange}
       name={props.name}
       placeholder={props.placeholder}
@@ -17,7 +18,9 @@ const InputField = (props) => {
 }
 
 InputField.PropTypes = {
-  onChange: PropTypes.func.isRequired,
+  hasError: PropTypes.bool,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   type: PropTypes.string.isRequired,

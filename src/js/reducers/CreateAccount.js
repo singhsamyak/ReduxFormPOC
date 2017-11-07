@@ -1,8 +1,10 @@
 import {
   INVALID_FIRST_NAME,
   INVALID_LAST_NAME,
+  INVALID_EMAIL,
   VALID_FIRST_NAME,
-  VALID_LAST_NAME
+  VALID_LAST_NAME,
+  VALID_EMAIL
 } from '../actions/types';
 
 const defaultState = {
@@ -13,10 +15,22 @@ const defaultState = {
 
 export default function (state = defaultState, action) {
   switch (action.type) {
+  case VALID_FIRST_NAME:
+    return {
+      ...state,
+      firstNameHasError: false
+    };
+
     case INVALID_FIRST_NAME:
       return {
         ...state,
         firstNameHasError: true
+      };
+
+    case VALID_LAST_NAME:
+      return {
+        ...state,
+        lastNameHasError: false
       };
 
     case INVALID_LAST_NAME:
@@ -25,16 +39,16 @@ export default function (state = defaultState, action) {
         lastNameHasError: true
       };
 
-    case VALID_FIRST_NAME:
+    case VALID_EMAIL:
       return {
         ...state,
-        firstNameHasError: false
+        emailHasError: false
       };
 
-    case VALID_LAST_NAME:
+    case INVALID_EMAIL:
       return {
         ...state,
-        lastNameHasError: false
+        emailHasError: true
       };
 
     default:
