@@ -8,7 +8,7 @@ import {
 } from '../actions/types';
 
 const mapStateToProps = state => {
-  console.log('state', state.createAccount);
+  console.log('state', state);
   return {
     userInfo: state.userInfo,
     createAccount: state.createAccount
