@@ -9,7 +9,8 @@ import {
 const mapStateToProps = state => {
   console.log('state', state);
   return {
-    userInfo: state.userInfo
+    userInfo: state.userInfo,
+    createAccount: state.createAccount
   };
 };
 
@@ -33,6 +34,12 @@ const mapDispatchToProps = dispatch => {
       dispatch({
         type: UPDATE_EMAIL,
         email: event.target.value
+      });
+    },
+
+    onFormSubmit: () => {
+      dispatch({
+        type: SUBMIT_CREATE_ACCOUNT
       });
     }
   }
