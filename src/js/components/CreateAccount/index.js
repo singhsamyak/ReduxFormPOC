@@ -11,9 +11,14 @@ const CreateAccount = (props) => {
     email: prefilledEmail
   } = props.userInfo;
 
+  const {
+    firstNameHasError: firstNameErrorState,
+    lastNameHasError: lastNameErrorState,
+    emailHasError: emailErrorState
+  } = props.createAccount;
+
   return (
     <div className="createAccount">
-
       <h1>Get Started</h1>
       <p>
         Already have an account? <Link href='#' title='Sign In'/>
@@ -21,6 +26,7 @@ const CreateAccount = (props) => {
 
       <form>
         <InputField
+          hasError={firstNameErrorState}
           onChange={props.onFirstNameChange}
           value={prefilledFirstName}
           name="firstName"
@@ -28,6 +34,7 @@ const CreateAccount = (props) => {
           type="text" />
 
         <InputField
+          hasError={lastNameErrorState}
           onChange={props.onLastNameChange}
           value={prefilledLastName}
           name="lastName"
@@ -35,7 +42,9 @@ const CreateAccount = (props) => {
           type="text" />
 
         <InputField
+          hasError={emailErrorState}
           onChange={props.onEmailChange}
+          onBlur={props.onEmailBlur}
           value={prefilledEmail}
           name="email"
           placeholder="Email"
