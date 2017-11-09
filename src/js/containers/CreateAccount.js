@@ -4,7 +4,10 @@ import {
   UPDATE_FIRST_NAME,
   UPDATE_LAST_NAME,
   UPDATE_EMAIL,
-  BLUR_EMAIL
+  UPDATE_PASSWORD,
+  BLUR_EMAIL,
+  BLUR_PASSWORD,
+  SUBMIT_CREATE_ACCOUNT
 } from '../actions/types';
 
 const mapStateToProps = state => {
@@ -17,6 +20,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    // On Change Handlers
     onFirstNameChange: (event) => {
       dispatch({
         type: UPDATE_FIRST_NAME,
@@ -38,6 +42,14 @@ const mapDispatchToProps = dispatch => {
       });
     },
 
+    onPasswordChange: (event) => {
+      dispatch({
+        type: UPDATE_PASSWORD,
+        password: event.target.value
+      });
+    },
+
+    // On Blur Handlers
     onEmailBlur: (event) => {
       dispatch({
         type: BLUR_EMAIL,
@@ -45,7 +57,16 @@ const mapDispatchToProps = dispatch => {
       });
     },
 
-    onFormSubmit: () => {
+    onPasswordBlur: (event) => {
+      dispatch({
+        type: BLUR_PASSWORD,
+        password: event.target.value
+      });
+    },
+
+    // On Submit Handlers
+    onFormSubmit: (event) => {
+      event.preventDefault();
       dispatch({
         type: SUBMIT_CREATE_ACCOUNT
       });

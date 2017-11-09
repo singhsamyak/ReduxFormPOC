@@ -14,8 +14,19 @@ const CreateAccount = (props) => {
   const {
     firstNameHasError: firstNameErrorState,
     lastNameHasError: lastNameErrorState,
-    emailHasError: emailErrorState
+    emailHasError: emailErrorState,
+    passwordHasError: passwordErrorState
   } = props.createAccount;
+
+  const {
+    onFirstNameChange,
+    onLastNameChange,
+    onEmailChange,
+    onPasswordChange,
+    onEmailBlur,
+    onPasswordBlur,
+    onFormSubmit
+  } = props;
 
   return (
     <div className="createAccount">
@@ -24,10 +35,10 @@ const CreateAccount = (props) => {
         Already have an account? <Link href='#' title='Sign In'/>
       </p>
 
-      <form>
+      <form onSubmit={onFormSubmit}>
         <InputField
           hasError={firstNameErrorState}
-          onChange={props.onFirstNameChange}
+          onChange={onFirstNameChange}
           value={prefilledFirstName}
           name="firstName"
           placeholder="First Name"
@@ -35,7 +46,7 @@ const CreateAccount = (props) => {
 
         <InputField
           hasError={lastNameErrorState}
-          onChange={props.onLastNameChange}
+          onChange={onLastNameChange}
           value={prefilledLastName}
           name="lastName"
           placeholder="Last Name"
@@ -43,14 +54,17 @@ const CreateAccount = (props) => {
 
         <InputField
           hasError={emailErrorState}
-          onChange={props.onEmailChange}
-          onBlur={props.onEmailBlur}
+          onBlur={onEmailBlur}
+          onChange={onEmailChange}
           value={prefilledEmail}
           name="email"
           placeholder="Email"
           type="email" />
 
         <InputField
+          hasError={passwordErrorState}
+          onBlur={onPasswordBlur}
+          onChange={onPasswordChange}
           name="password"
           placeholder="Password"
           type="password" />
@@ -59,7 +73,6 @@ const CreateAccount = (props) => {
           isPrimary={true}
           value="Create Account" />
       </form>
-
     </div>
   );
 }
