@@ -12,4 +12,4 @@ Each branch has a different concept:
 
 #### form-validation
 
-![form-validation.gif](http://www.giphy.com/gifs/3ohs7TEwknHGEzzeQo)
+![](http://www.giphy.com/gifs/3ohs7TEwknHGEzzeQo)
