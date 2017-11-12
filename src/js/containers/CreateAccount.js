@@ -54,4 +54,4 @@ const mapDispatchToProps = dispatch => {
 };
 
 const CreateAccountContainer = connect(mapStateToProps,mapDispatchToProps)(CreateAccount);
-export default connect(mapStateToProps)(CreateAccountContainer);
+export default CreateAccountContainer;
