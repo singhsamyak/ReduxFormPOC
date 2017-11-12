@@ -8,8 +8,3 @@ Each branch has a different concept:
  * ```form-validation```: simple form validation using middlewares.
  * ```form-prefill```: simple form pre-population using event-channels (redux-saga).
  * ```master```: all, merged.
-
-
-#### form-validation
-
-![](http://www.giphy.com/gifs/3ohs7TEwknHGEzzeQo/giphy.gif)
