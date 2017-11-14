@@ -1,11 +1,11 @@
 import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
-import { appMiddleware } from './middlewares';
+import { validateFields, validateForm } from './middlewares';
 
 const store = createStore(
   reducers,
-  applyMiddleware(appMiddleware)
+  applyMiddleware(validateFields, validateForm)
 );
 
 export default store;

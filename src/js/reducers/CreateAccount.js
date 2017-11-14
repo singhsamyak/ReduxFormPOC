@@ -6,7 +6,8 @@ import {
   VALID_LAST_NAME,
   VALID_EMAIL,
   VALID_PASSWORD,
-  INVALID_PASSWORD
+  INVALID_PASSWORD,
+  NOTIFY_ERROR
 } from '../actions/types';
 
 const defaultState = {
@@ -64,6 +65,22 @@ export default function (state = defaultState, action) {
       return {
         ...state,
         passwordHasError: true
+      };
+
+    case NOTIFY_ERROR:
+      const {
+        firstNameHasError,
+        lastNameHasError,
+        emailHasError,
+        passwordHasError
+      } = action;
+
+      return {
+        ...state,
+        firstNameHasError,
+        lastNameHasError,
+        emailHasError,
+        passwordHasError
       };
 
     default:

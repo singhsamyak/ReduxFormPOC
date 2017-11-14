@@ -7,14 +7,15 @@ import {
   UPDATE_PASSWORD,
   BLUR_EMAIL,
   BLUR_PASSWORD,
-  SUBMIT_CREATE_ACCOUNT
+  VALIDATE_FORM
 } from '../actions/types';
 
 const mapStateToProps = state => {
   console.log('state', state);
   return {
-    userInfo: state.userInfo,
-    createAccount: state.createAccount
+    createAccount: state.createAccount,
+    notification: state.notification,
+    userInfo: state.userInfo
   };
 };
 
@@ -68,7 +69,11 @@ const mapDispatchToProps = dispatch => {
     onFormSubmit: (event) => {
       event.preventDefault();
       dispatch({
-        type: SUBMIT_CREATE_ACCOUNT
+        type: VALIDATE_FORM,
+        firstName: event.target[0].value,
+        lastName: event.target[1].value,
+        email: event.target[2].value,
+        password: event.target[3].value
       });
     }
   }

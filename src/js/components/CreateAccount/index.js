@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import InputField from '../InputField';
 import Button from '../Button';
 import Link from '../Link';
+import Notification from '../Notification';
 
 const CreateAccount = (props) => {
   const {
@@ -19,6 +20,11 @@ const CreateAccount = (props) => {
   } = props.createAccount;
 
   const {
+    message,
+    notify
+  } = props.notification;
+
+  const {
     onFirstNameChange,
     onLastNameChange,
     onEmailChange,
@@ -30,6 +36,7 @@ const CreateAccount = (props) => {
 
   return (
     <div className="createAccount">
+      { notify ? <Notification message={message}/> : null }
       <h1>Get Started</h1>
       <p>
         Already have an account? <Link href='#' title='Sign In'/>

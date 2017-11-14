@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import userInfo from './UserInfo';
-import createAccount from './CreateAccount';
+import createAccount from './createAccount';
+import userInfo from './userInfo';
+import notification from './notification';
 
 export default combineReducers({
   createAccount,
+  notification,
   userInfo
 });
