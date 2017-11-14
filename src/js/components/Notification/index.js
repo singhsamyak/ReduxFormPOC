@@ -12,6 +12,7 @@ const Notification = ({ isError, message }) => {
 }
 
 Notification.propTypes = {
+  isError: PropTypes.bool,
   message: PropTypes.string
 }
 

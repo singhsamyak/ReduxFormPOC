@@ -1,23 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputField = (props) => {
+const InputField = ({
+  hasError,
+  onBlur,
+  onChange,
+  name,
+  placeholder,
+  type,
+  value
+}) => {
   let className = 'inputField';
-  className = props.hasError ? `${className} hasError` : `inputField`;
+  className = hasError ? `${className} hasError` : `inputField`;
 
   return (
     <input
       className={className}
-      onBlur={props.onBlur}
-      onChange={props.onChange}
-      name={props.name}
-      placeholder={props.placeholder}
-      type={props.type}
-      value={props.value} />
+      onBlur={onBlur}
+      onChange={onChange}
+      name={name}
+      placeholder={placeholder}
+      type={type}
+      value={value} />
   );
 }
 
 InputField.propTypes = {
+  hasError: PropTypes.bool,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,

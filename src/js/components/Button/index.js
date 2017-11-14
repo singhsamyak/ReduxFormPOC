@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = (props) => {
+const Button = ({ isPrimary, name, value }) => {
   let buttonType,
       className = 'button';
 
-  if (props.isPrimary) {
+  if (isPrimary) {
     buttonType = 'submit';
     className += ' primary';
   } else {
@@ -16,14 +16,14 @@ const Button = (props) => {
   return (
     <input
       className={className}
-      name={props.name}
+      name={name}
       type={buttonType}
-      value={props.value} />
+      value={value} />
   );
 }
 
 Button.propTypes = {
-  isPrimary: PropTypes.bool.isRequired,
+  isPrimary: PropTypes.bool,
   name: PropTypes.string,
   value: PropTypes.string.isRequired
 }
