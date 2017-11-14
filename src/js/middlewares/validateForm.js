@@ -29,10 +29,10 @@ export const validateForm = store => next => action => {
         store.dispatch({
           type: NOTIFY_ERROR,
           message: 'You have one or more errors.',
-          firstNameHasError: !firstNameValid,
-          lastNameHasError: !lastNameValid,
-          emailHasError: !emailValid,
-          passwordHasError: !passwordValid
+          firstNameError: !firstNameValid,
+          lastNameError: !lastNameValid,
+          emailError: !emailValid,
+          passwordError: !passwordValid
         });
       }
   }

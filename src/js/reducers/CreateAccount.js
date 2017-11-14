@@ -11,10 +11,10 @@ import {
 } from '../actions/types';
 
 const defaultState = {
-  firstNameHasError: false,
-  lastNameHasError: false,
-  emailHasError: false,
-  passwordHasError: false
+  firstNameError: false,
+  lastNameError: false,
+  emailError: false,
+  passwordError: false
 };
 
 export default function (state = defaultState, action) {
@@ -22,65 +22,65 @@ export default function (state = defaultState, action) {
     case VALID_FIRST_NAME:
       return {
         ...state,
-        firstNameHasError: false
+        firstNameError: false
       };
 
     case INVALID_FIRST_NAME:
       return {
         ...state,
-        firstNameHasError: true
+        firstNameError: true
       };
 
     case VALID_LAST_NAME:
       return {
         ...state,
-        lastNameHasError: false
+        lastNameError: false
       };
 
     case INVALID_LAST_NAME:
       return {
         ...state,
-        lastNameHasError: true
+        lastNameError: true
       };
 
     case VALID_EMAIL:
       return {
         ...state,
-        emailHasError: false
+        emailError: false
       };
 
     case INVALID_EMAIL:
       return {
         ...state,
-        emailHasError: true
+        emailError: true
       };
 
     case VALID_PASSWORD:
       return {
         ...state,
-        passwordHasError: false
+        passwordError: false
       };
 
     case INVALID_PASSWORD:
       return {
         ...state,
-        passwordHasError: true
+        passwordError: true
       };
 
     case NOTIFY_ERROR:
       const {
-        firstNameHasError,
-        lastNameHasError,
-        emailHasError,
-        passwordHasError
+        firstNameError,
+        lastNameError,
+        emailError,
+        passwordError
       } = action;
 
       return {
         ...state,
-        firstNameHasError,
-        lastNameHasError,
-        emailHasError,
-        passwordHasError
+        firstNameError,
+        lastNameError,
+        emailError,
+        passwordError
       };
 
     default:

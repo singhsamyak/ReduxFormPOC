@@ -1,27 +1,24 @@
 import { connect } from 'react-redux';
 import CreateAccount from '../components/CreateAccount';
 import {
+  BLUR_EMAIL,
+  BLUR_PASSWORD,
   UPDATE_FIRST_NAME,
   UPDATE_LAST_NAME,
   UPDATE_EMAIL,
   UPDATE_PASSWORD,
-  BLUR_EMAIL,
-  BLUR_PASSWORD,
   VALIDATE_FORM
 } from '../actions/types';
 
 const mapStateToProps = state => {
-  console.log('state', state);
   return {
     createAccount: state.createAccount,
-    notification: state.notification,
     userInfo: state.userInfo
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    // On Change Handlers
     onFirstNameChange: (event) => {
       dispatch({
         type: UPDATE_FIRST_NAME,
@@ -50,7 +47,6 @@ const mapDispatchToProps = dispatch => {
       });
     },
 
-    // On Blur Handlers
     onEmailBlur: (event) => {
       dispatch({
         type: BLUR_EMAIL,
@@ -65,7 +61,6 @@ const mapDispatchToProps = dispatch => {
       });
     },
 
-    // On Submit Handlers
     onFormSubmit: (event) => {
       event.preventDefault();
       dispatch({
@@ -76,8 +71,8 @@ const mapDispatchToProps = dispatch => {
         password: event.target[3].value
       });
     }
-  }
+  };
 };
 
-const CreateAccountContainer = connect(mapStateToProps,mapDispatchToProps)(CreateAccount);
-export default connect(mapStateToProps)(CreateAccountContainer);
+const CreateAccountContainer = connect(mapStateToProps, mapDispatchToProps)(CreateAccount);
+export default CreateAccountContainer;
