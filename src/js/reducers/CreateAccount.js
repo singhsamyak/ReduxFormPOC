@@ -4,51 +4,83 @@ import {
   INVALID_EMAIL,
   VALID_FIRST_NAME,
   VALID_LAST_NAME,
-  VALID_EMAIL
+  VALID_EMAIL,
+  VALID_PASSWORD,
+  INVALID_PASSWORD,
+  NOTIFY_ERROR
 } from '../actions/types';
 
 const defaultState = {
-  firstNameHasError: false,
-  lastNameHasError: false,
-  emailHasError: false
+  firstNameError: false,
+  lastNameError: false,
+  emailError: false,
+  passwordError: false
 };
 
 export default function (state = defaultState, action) {
   switch (action.type) {
-  case VALID_FIRST_NAME:
-    return {
-      ...state,
-      firstNameHasError: false
-    };
+    case VALID_FIRST_NAME:
+      return {
+        ...state,
+        firstNameError: false
+      };
 
     case INVALID_FIRST_NAME:
       return {
         ...state,
-        firstNameHasError: true
+        firstNameError: true
       };
 
     case VALID_LAST_NAME:
       return {
         ...state,
-        lastNameHasError: false
+        lastNameError: false
       };
 
     case INVALID_LAST_NAME:
       return {
         ...state,
-        lastNameHasError: true
+        lastNameError: true
       };
 
     case VALID_EMAIL:
       return {
         ...state,
-        emailHasError: false
+        emailError: false
       };
 
     case INVALID_EMAIL:
       return {
         ...state,
-        emailHasError: true
+        emailError: true
+      };
+
+    case VALID_PASSWORD:
+      return {
+        ...state,
+        passwordError: false
+      };
+
+    case INVALID_PASSWORD:
+      return {
+        ...state,
+        passwordError: true
+      };
+
+    case NOTIFY_ERROR:
+      const {
+        firstNameError,
+        lastNameError,
+        emailError,
+        passwordError
+      } = action;
+
+      return {
+        ...state,
+        firstNameError,
+        lastNameError,
+        emailError,
+        passwordError
       };
 
     default:

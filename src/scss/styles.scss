@@ -1,4 +1,10 @@
 $primary-color: #3F51B5;
+$secondary-color: #2c3e50;
+$dark-grey: #dedede;
+$error: #e74c3c;
+$success: #27ae60;
+$white: #ffffff;
+$black: #999999;
 
 * {
   margin: 0;
@@ -8,20 +14,24 @@ $primary-color: #3F51B5;
 body {
   background-color: #fff;
   font-family: 'Helvetica';
-  font-size: 13pt;
+  font-size: 12pt;
+}
+
+main {
+  margin: 0 auto;
 }
 
 .createAccount {
-  width: 350px;
-  margin: 100px auto;
+  margin: 60px auto;
+  width: 300px;
 
   & h1 {
-    margin-bottom: 10px;
+    margin: 40px 0 10px 0;
     font-weight: 500;
   }
 
   & p {
-    color: #999999;
+    color: $black;
   }
 
   & h1, p {
@@ -54,13 +64,13 @@ body {
   }
 
   &.secondary {
-    background-color: #2c3e50;
+    background-color: $secondary-color;
   }
 }
 
 .inputField {
   border: 0;
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid $dark-grey;
   width: 100%;
   padding-top: 10px;
   padding-bottom: 8px;
@@ -68,7 +78,7 @@ body {
   margin-bottom: 10px;
 
   &.hasError {
-    border-bottom: 2px solid #e74c3c;
+    border-bottom: 2px solid $error;
   }
 }
 
@@ -77,6 +87,29 @@ body {
   border-bottom: 2px solid $primary-color;
 
   &.hasError {
-    border-bottom: 2px solid #e74c3c;
+    border-bottom: 2px solid $error
+  }
+}
+
+.notification {
+  box-sizing: border-box;
+  box-shadow: 0 1px 1px 0 $black;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  &.error {
+    background-color: $error;
+  }
+
+  &.success {
+    background-color: $success;
+  }
+
+  & .message {
+    color: $white;
+    font-size: 11pt;
+    text-align: center;
   }
 }
