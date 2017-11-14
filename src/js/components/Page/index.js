@@ -5,11 +5,11 @@ import CreateAccount from '../../Containers/CreateAccount';
 
 const Page = ({ notification }) => {
 
-  const { message, notify } = notification;
+  const { notify } = notification;
 
   return (
     <main>
-      { notify ? <Notification message={message}/> : null }
+      { notify ? <Notification {...notification}/> : null }
       <CreateAccount />
     </main>
   );

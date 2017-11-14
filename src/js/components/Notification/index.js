@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Notification = (props) => {
+const Notification = ({ isError, message }) => {
+  const className = isError ? 'notification error' : 'notification success';
+
   return (
-    <div className='notification'>
-      <p className='message'>{props.message}</p>
+    <div className={className}>
+      <p className='message'>{message}</p>
     </div>
   );
 }

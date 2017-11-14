@@ -20,6 +20,7 @@ export const validateForm = store => next => action => {
       if (firstNameValid && lastNameValid && emailValid && passwordValid) {
         store.dispatch({
           type: SUBMIT_FORM,
+          message: 'Your account has been created!',
           firstName,
           lastName,
           email,
@@ -28,7 +29,7 @@ export const validateForm = store => next => action => {
       } else {
         store.dispatch({
           type: NOTIFY_ERROR,
-          message: 'You have one or more errors.',
+          message: 'You have one or more errors, please fix them to continue.',
           firstNameError: !firstNameValid,
           lastNameError: !lastNameValid,
           emailError: !emailValid,

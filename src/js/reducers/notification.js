@@ -1,6 +1,7 @@
 import { NOTIFY_ERROR, SUBMIT_FORM } from '../actions/types';
 
 const defaultState = {
+  isError: false,
   message: '',
   notify: false
 }
@@ -10,6 +11,7 @@ export default function (state = defaultState, action) {
     case NOTIFY_ERROR:
       return {
         ...state,
+        isError: true,
         message: action.message,
         notify: true
       };
@@ -17,8 +19,9 @@ export default function (state = defaultState, action) {
     case SUBMIT_FORM:
       return {
         ...state,
-        message: '',
-        notify: false
+        isError: false,
+        message: action.message,
+        notify: true
       };
 
     default:
